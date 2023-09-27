@@ -11,7 +11,6 @@ export class AppComponent implements OnInit {
     @Input() noteInfo: Note[] = [];
 
     public ngOnInit() {
-
         this.getNotes();
     }
 
