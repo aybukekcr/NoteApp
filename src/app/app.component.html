@@ -1,0 +1,13 @@
+<div>
+    <div class="navbar">
+        <img src="assets/ec-logo-small.png" class="logo" id=logo alt="EnglishCentral Logo Image">
+        <div class="title">{{title}}</div>
+        <button class="add-button" (click)="addNoteExample()">Add</button>
+    </div>
+
+    <div class="cards-wrapper">
+        <app-notes *ngFor="let note of noteInfo" [note]="note"></app-notes>
+
+    </div>
+</div>
+

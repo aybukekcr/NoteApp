@@ -1,0 +1,50 @@
+.navbar{
+  background-color: #fff;
+  margin: 0;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  left:0;
+  width: 100%;
+  box-shadow: 0 0.25rem 0.25rem lightgrey;
+
+}
+
+.logo{
+  float: left;
+  width: 2.5rem;
+  height: 2rem;
+  margin: 0;
+}
+.title{
+  padding: 0 ;
+  margin: 0.5rem 4rem;
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-size: inherit;
+}
+
+.cards-wrapper {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+.add-button{
+  width: auto;
+  position: fixed ;
+  top: 1rem;
+  right:1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: cornflowerblue;
+  border-style: none;
+  cursor: pointer;
+}
+
+
+
+
+

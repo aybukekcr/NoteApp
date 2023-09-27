@@ -1,0 +1,16 @@
+<div class="card"  (click)="toggleEdit()">
+  <div class="edit" *ngIf="!shouldEdit">
+    <label class="custom-title" id="title"  >{{note?.title | uppercase}}</label>
+    <hr class="custom-hr">
+    <label id="detail">{{note?.bodyText}}</label>
+  </div>
+
+  <div class="edit" *ngIf="shouldEdit" (keyup.enter)="save($event)">
+    <textarea class="card-body<" [(ngModel)]="note.title" (click)="stopPropagation($event)" ></textarea>
+    <textarea class="card-body" [(ngModel)]="note.bodyText" (click)="stopPropagation($event)"></textarea>
+    <div>
+      <button class="buttons save-button" type="submit" (click)="save($event)">Kaydet</button>
+      <button class="buttons delete-button" (click)="delete()">Sil</button>
+    </div>
+  </div>
+</div>
