@@ -6,13 +6,11 @@ import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import {HttpClientModule} from "@angular/common/http";
-import { NewNoteComponent } from './new-note/new-note.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
-    NewNoteComponent,
   ],
   imports: [
     BrowserModule,
