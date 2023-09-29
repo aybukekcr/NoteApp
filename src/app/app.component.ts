@@ -1,48 +1,46 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, } from '@angular/core';
 import {Note} from "./note";
+import {NoteService} from "./note.service";
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-    title = 'EnglishCentral Notes';
-    @Input() noteInfo: Note[] = [];
+  title:string = 'EnglishCentral Notes';
+  @Input() noteInfo: Note[] = [];
 
-    public ngOnInit() {
-        this.getNotes();
-    }
+  constructor(private noteService: NoteService) {
+  }
 
-    getNotes() {
-        let notes;
-        this.noteInfo = [];
+  public ngOnInit():void {
+    this.noteInfo = this.getNotes();
+  }
 
-        Object.keys(localStorage).forEach((key) => {
-            const noteString = localStorage.getItem(key);
-            console.log(noteString);
-            if (noteString !== null) {
-                const note: Note = JSON.parse(noteString);
-                this.noteInfo.push(note);
-                this.noteInfo.sort((note1, note2) => {
-                    return note2.key - note1.key;
-                });
-            }
-        });
-        console.log(this.noteInfo);
-    }
+  getNotes(): Note[] {
+    let notes: Note[] = [];
+    this.noteService.getNotes().subscribe((data:Note[])=>{
+      this.noteInfo=data;
+    });
+    return notes;
+  }
 
-    addNoteExample() {
-        const key = Date.now();
-        const newNote = {
-            title: "",
-            bodyText: "",
-            key: key
-        };
-
-        localStorage.setItem(key.toString(), JSON.stringify(newNote));
-        this.noteInfo.unshift(newNote);
-    }
+  addNoteExample():void {
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  }
 
 
 }

@@ -1,5 +1,6 @@
 export interface Note{
-  key:number;
+  userId:number,
+  id:number;
   title: string;
-  bodyText: string;
+  body: string;
 }

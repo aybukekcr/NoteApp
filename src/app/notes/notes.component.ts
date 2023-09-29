@@ -1,49 +1,52 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
-import {NoteService} from "../note.service";
+import {Component, Input} from '@angular/core';
 
 
 @Component({
-    selector: 'app-notes',
-    templateUrl: './notes.component.html',
-    styleUrls: ['./notes.component.css']
+  selector: 'app-notes',
+  templateUrl: './notes.component.html',
+  styleUrls: ['./notes.component.css']
 })
 export class NotesComponent {
-    @Input() note: any;
-    shouldEdit: boolean = false;
+  @Input() note: any;
+  shouldEdit: boolean = false;
 
-    constructor(private localStorage: NoteService) {
-    }
+  constructor() {
+  }
 
-    save(event: Event) {
-        this.stopPropagation(event);
+  save(event: Event):void {
+    this.stopPropagation(event);
+    fetch('https://jsonplaceholder.typicode.com/posts/1', {
+      method: 'PUT',
+      body: JSON.stringify({
+        id: 1,
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
 
-        if (!this.note.key) {
-            console.error('Note ID is undefined. Cannot save.');
-            return;
-        } else {
-            localStorage.setItem(this.note.key.toString(), JSON.stringify(this.note));
-        }
 
-        this.shouldEdit = false;
-    }
+    this.shouldEdit = false;
+  }
 
-    delete() {
-        if (this.note.key === 'undefined') {
-            console.error('Note ID is undefined. Cannot delete.');
-            return;
-        }
+  delete():void {
+    fetch('https://jsonplaceholder.typicode.com/posts/1', {
+      method: 'DELETE',
+    });
+  }
 
-        localStorage.removeItem(JSON.stringify(this.note.key));
-        window.location.reload();
-    }
+  toggleEdit():void {
+    this.shouldEdit = !this.shouldEdit;
+  }
 
-    toggleEdit() {
-        this.shouldEdit = !this.shouldEdit;
-    }
-
-    stopPropagation(event: Event) {
-        event.stopPropagation();
-    }
+  stopPropagation(event: Event):void {
+    event.stopPropagation();
+  }
 
 
 }

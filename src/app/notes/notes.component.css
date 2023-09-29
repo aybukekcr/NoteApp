@@ -1,77 +1,90 @@
 .card {
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 0.5rem;
-    margin: 2rem;
-    padding: 1rem;
-    width: 20rem;
-    height: 10rem;
-    overflow: hidden;
-    @media screen and (max-width: 430px ) {
-        width: 10rem;
-        height: 5rem;
-        margin: 1rem;
-    }
-    cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  margin: 2rem;
+  padding: 1rem;
+  /*max-width: 15rem;*/
+  height: 10rem;
+  @media screen and (max-width: 430px ) {
+    width: 10rem;
+    height: 5rem;
+    margin: 1rem;
+  }
+  cursor: pointer;
+
 }
 
 .edit {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  height: max-content;
 
 }
 
 .edit textarea {
-    width: 96%;
-    margin-bottom: 1rem;
-    font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-    font-size: inherit;
-    border-radius: 0.5rem;
-    box-shadow: 0.1rem 0.1rem cornflowerblue;
-    /*transition: background-color 0.5s ease-in;*/
-    /*@media screen and (max-width: 650px) {*/
-    /*  background-color: transparent;*/
-    /*}*/
+  width: 96%;
+  resize:none;
+  margin-bottom: 1rem;
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-size: inherit;
+  border-radius: 0.5rem;
+  box-shadow: 0.1rem 0.1rem cornflowerblue;
+  /*transition: background-color 0.5s ease-in;*/
+  /*@media screen and (max-width: 650px) {*/
+  /*  background-color: transparent;*/
+  /*}*/
 }
 
 .save-button {
-    align-self: flex-start;
-    background-color: cornflowerblue;
+  align-self: flex-start;
+  background-color: cornflowerblue;
 }
 
 button.buttons:hover {
-    background-color: plum;
+  background-color: plum;
 }
 
 .custom-title {
-    font-weight: bold;
-    font-size: 18px;
-    align-self: center
+  font-weight: bold;
+  font-size: 18px;
+  align-self: center;
+  cursor: pointer;
+  white-space: pre-wrap;
+  max-width: 30rem;
+
 }
 
 .card-body {
-    max-height: 2.7rem;
-    max-width: 100%;
+  height: max-content;
+  max-width: 100%;
 }
 
 .delete-button {
-    align-self: flex-end;
-    background-color: red;
+  align-self: flex-end;
+  background-color: red;
 
 }
 
 .buttons {
-    width: 48%;
-    margin: 0.2rem 0.1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border-style: none;
-    transition: background-color 1s linear;
-    cursor: pointer;
+  width: 48%;
+  margin: 0.2rem 0.1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-style: none;
+  transition: background-color 1s linear;
+  cursor: pointer;
 }
- .custom-hr{
-     width: 70%;
-     text-align: center;
- }
+
+.custom-hr {
+  width: 70%;
+  text-align: center;
+}
+
+.custom-label{
+  font-family: inherit;
+  cursor: pointer;
+  white-space: pre-wrap;
+}

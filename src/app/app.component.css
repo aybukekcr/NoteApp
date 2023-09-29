@@ -7,6 +7,7 @@
   left:0;
   width: 100%;
   box-shadow: 0 0.25rem 0.25rem lightgrey;
+  box-sizing: border-box;
 
 }
 
@@ -25,10 +26,10 @@
 
 .cards-wrapper {
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 
 }
 
